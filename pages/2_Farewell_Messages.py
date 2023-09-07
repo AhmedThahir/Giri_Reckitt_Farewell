@@ -38,10 +38,12 @@ def main():
         df,
         lat="Lat",
         lon="Lon",
-        hover_name="Name",
+        # hovertext="No peaking",
+        # hover_name="Name",
         projection="orthographic",
         # center = (0, 0)
     )
+    fig.update_traces(hovertemplate="No peaking!")
     fig.update_geos(
         # (meters) : higher number --> lower detail --> smoother
         resolution=110,

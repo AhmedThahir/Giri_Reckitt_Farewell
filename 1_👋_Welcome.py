@@ -11,22 +11,21 @@ def main():
 	It has been a lovely few months with you. Hope you like this :) ✨
 	""")
 
-	keys = ["b1", "b2"]
+	keys = ["b1", "b2", "b3"]
 	for key in keys:
 		if key not in st.session_state:
 			st.session_state[key] = False
 
 	if st.button("Click here to go to the next page") or st.session_state["b1"]:
 		st.session_state["b1"] = True
-		if st.session_state["b2"] is not True:
-			st.snow()
-			time.sleep(2)
+		st.balloons()
+		time.sleep(2)
 		if st.button("Hmmm, maybe it's an error. Click here.") or st.session_state["b2"]:
 			st.session_state["b2"] = True
-			st.balloons()
-			time.sleep(2)
-			st.info("""
-			Sike. Use the sidebar to navigate.	  
-			""", icon="👈")
+			if st.button("Okay, okay. Last time.") or st.session_state["b3"]:
+				st.session_state["b3"] = True
+				st.info("""
+				Sike. Use the sidebar to navigate.	  
+				""", icon="👈")
 
 main()
